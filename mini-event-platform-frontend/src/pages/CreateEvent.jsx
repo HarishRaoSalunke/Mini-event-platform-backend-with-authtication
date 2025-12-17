@@ -16,7 +16,17 @@ function CreateEvent() {
     try {
       const token = localStorage.getItem("token");
 
-      await api.post("/api/events", formData);
+     await api.post("/api/events", {
+        title,
+        description,
+        date,
+        location
+    },
+    {
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      })
 
       alert("Event created successfully");
       navigate("/events");
