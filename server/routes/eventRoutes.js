@@ -13,7 +13,7 @@ const {
 router.post("/", protect, createEvent);
 
 // Get all events
-router.get("/", getEvents);
+router.get("/", protect,getEvents);
 
 // RSVP event
 router.post("/:id/rsvp", protect, rsvpEvent);
